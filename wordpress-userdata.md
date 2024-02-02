@@ -1,6 +1,6 @@
 #!/bin/bash
 mkdir /var/www/
-sudo mount -t efs -o tls,accesspoint=fsap-0f9364679383ffbc0 fs-8b501d3f:/ /var/www/
+sudo mount -t efs -o tls,accesspoint=fsap-02bdd3444d7daa571 fs-00e17c213e40a2245:/ /var/www/
 yum install -y httpd 
 systemctl start httpd
 systemctl enable httpd
@@ -19,7 +19,7 @@ cd /var/www/html/
 touch healthstatus
 sed -i "s/localhost/bankycs-database.czseckswarhm.us-east-1.rds.amazonaws.com/g" wp-config.php 
 sed -i "s/username_here/BankyCSadmin/g" wp-config.php 
-sed -i "s/password_here/admin12345/g" wp-config.php 
+sed -i "s/password_here/Intercommunity@123./g" wp-config.php 
 sed -i "s/database_name_here/wordpressdb/g" wp-config.php 
 chcon -t httpd_sys_rw_content_t /var/www/html/ -R
 systemctl restart httpd
