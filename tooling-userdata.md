@@ -16,6 +16,6 @@ cd /tooling
 mysql -h bankycs-database.czseckswarhm.us-east-1.rds.amazonaws.com -u BankyCSadmin -p toolingdb < tooling-db.sql
 cd /var/www/html/
 touch healthstatus
-sed -i "s/$db = mysqli_connect('mysql.tooling.svc.cluster.local', 'admin', 'admin', 'tooling');/$db = mysqli_connect('acs-database.cdqpbjkethv0.us-east-1.rds.amazonaws.com', 'BankyCSadmin', 'Intercommunity@123.', 'toolingdb');/g" functions.php
+sed -i "s/$db = mysqli_connect('mysql.tooling.svc.cluster.local', 'admin', 'admin', 'tooling');/$db = mysqli_connect('acs-database.cdqpbjkethv0.us-east-1.rds.amazonaws.com', 'BankyCSadmin', 'admin12345', 'toolingdb');/g" functions.php
 chcon -t httpd_sys_rw_content_t /var/www/html/ -R
 systemctl restart httpd
